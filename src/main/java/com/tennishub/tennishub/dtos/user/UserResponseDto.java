@@ -1,18 +1,20 @@
 package com.tennishub.tennishub.dtos.user;
+import com.tennishub.tennishub.model.User;
 
 public record UserResponseDto(
-    Integer Id,
+    Integer id,
     String firstName,
     String lastName,
     String email,
     String phoneNumber
 )   {
-        public UserResponseDto fromEntity() {
+        public static UserResponseDto fromEntity(User user) {
             return new UserResponseDto(
-                Id,
-                firstName,
-                lastName,
-                email,
-                phoneNumber);
+                user.getId(),
+                user.getFirstName(),
+                user.getLastName(),
+                user.getEmail(),
+                user.getPhoneNumber()
+            );
         }
     }
